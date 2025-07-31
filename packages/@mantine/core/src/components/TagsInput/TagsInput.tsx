@@ -282,7 +282,7 @@ export const TagsInput = factory<TagsInputFactory>((_props, ref) => {
     const inputValue = _searchValue.trim();
     const { length } = inputValue;
 
-    if (splitChars.includes(event.key) && length > 0) {
+    if (!event.nativeEvent.isComposing && splitChars.includes(event.key) && length > 0) {
       setValue(
         getSplittedTags({
           splitChars,
